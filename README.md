@@ -1,0 +1,1 @@
+# komfovent-api-python
