@@ -9,14 +9,6 @@ class KomfoventConnectionResult(Enum):
     UNAUTHORISED = 3
     INVALID_INPUT = 4
 
-
-@dataclass
-class KomfoventSettinsResponse():
-    name: str
-    model: str
-    version: str
-    serial_number: str
-
 class KomfoventCredentials():
   
     __host: ParseResult = None
@@ -34,9 +26,26 @@ class KomfoventCredentials():
     def host(self) -> str:
         return "http://" + self.__host.netloc
 
-
 class KomfoventOperatingModes(Enum):
     AWAY = 1
     NORMAL = 2
     INTENSIVE = 3
     BOOST = 4
+
+
+@dataclass
+class KomfoventSettins():
+    name: str
+    model: str
+    version: str
+    serial_number: str
+
+
+@dataclass
+class KomfoventUnit():
+    mode: str
+    fan_speed: int
+    temp_target: float
+    temp_supply: float
+    temp_extract: float
+    temp_outside: float

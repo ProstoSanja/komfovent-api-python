@@ -2,10 +2,11 @@ from .classes import *
 
 import aiohttp
 
-async def request(filename: str, creds: KomfoventCredentials, session: aiohttp.ClientSession) -> tuple[KomfoventConnectionResult, str]:
+async def request(filename: str, creds: KomfoventCredentials) -> tuple[KomfoventConnectionResult, str]:
     try:
-        async with session.post(creds.host() + filename, data= {'1': creds.username, '2': creds.password}) as resp:
-            return await validate_komfovent_response(resp)
+        async with aiohttp.ClientSession(timeout=aiohttp.ClientTimeout(5.0)) as session:
+            async with session.post(creds.host() + filename, data= {'1': creds.username, '2': creds.password}) as resp:
+                return await validate_komfovent_response(resp)
     except:
         return (KomfoventConnectionResult.NOT_FOUND, None)
 
