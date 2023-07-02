@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="windows-1252">
+    <link type="text/css" href="style-41.css " rel="stylesheet">
+    <script src="ajax-41.js "></script>
+    <script src="utils-41.js "></script>
+    <script>var hwv = "3", fdh2 = "0", fds = "0", fce = "0", fcl1 = "75     ", fcv1 = "0      ", fcl2 = "75     ", fcv2 = "0      ", rs = "0  ", lfn = "c6.l        ", sfn = "c6.set      ", un = "m&#xb3;/h   ", phh = "50 %  ", phh2 = "50 %  ", cln = "1     ", ers = (hwv = "3", "Error "), ph1 = "44 %  ", ph2 = "**.* %", cloud_en = "1     ", show_sn = "217400                          ", show_cfg = "R-250-F_v2209                   "; window.addEventListener("load", settings_onload), setInterval(function () { AJAX_get("i3.asp", function (e) { document.getElementById("res1").disabled = 1 == e.getElementsByTagName("RES")[0].childNodes[0].nodeValue.trim(); var t = 1 == e.getElementsByTagName("FDS")[0].childNodes[0].nodeValue.trim(); document.getElementById("b_starttest").disabled = t, document.getElementById("b_starttest").value = 1 == t ? "Testing   " : "Start  " }) }, 2e3)</script>
+</head>
+
+<body>
+    <div class="header">
+        <div id="back"></div>
+        <div class="name">SETTINGS </div>
+        <div class="line"></div>
+    </div>
+    <form method="post" autocomplete="off">
+        <div class="st_cfg">
+            <div>
+                <div class="st1">USER INTERFACE </div>
+                <div class="st2">
+                    <p>Language <select class="i_44" name="202">
+                            <option selected value="1">English</option>
+                            <option value="2">Lietuvi&#x173;</option>
+                            <option value="3">Pycc&#x43A;&#x438;&#x439;</option>
+                            <option value="4">Polski</option>
+                            <option value="5">Slovensk&#xfd;</option>
+                            <option value="6">Deutsch</option>
+                            <option value="7">Fran&#xe7;ais</option>
+                            <option value="8">Magyar</option>
+                            <option value="9">Italiano</option>
+                            <option value="10">Eesti</option>
+                            <option value="11">Nederlands</option>
+                            <option value="12">Latvie&#x161;u</option>
+                            <option value="13">Portugu&#xea;s</option>
+                            <option value="14">Svenska</option>
+                            <option value="15">Suomi</option>
+                            <option value="16">Hrvatski</option>
+                            <option value="17">Sloven&#x161;&#x010D;ina</option>
+                            <option value="18">&#x10C;e&#x161;tina</option>
+                            <option value="19">Dansk</option>
+                            <option value="20">Español</option>
+                        </select></p>
+                    <p>Flow units <select id="sel_funits" class="i_44" name="203">
+                            <option selected value="1">m&#xb3;/h</option>
+                            <option value="2">l/s</option>
+                        </select></p>
+                    <p>AHU name <input type="text" name="204" value="Paekalda               " maxlength="23"
+                            class="i_44"></p>
+                </div><br>
+                <div class="st1">DATE/TIME </div>
+                <div class="st2">
+                    <p>Day - month - year <input type="text" name="207" value="2023" maxlength="4" class="i_22"> <input
+                            type="text" name="208" value="07" maxlength="2" class="i_11"> <input type="text" name="209"
+                            value="02" maxlength="2" class="i_11"></p>
+                    <p>Time <input type="text" name="211" value="59" maxlength="5" class="i_22"> <input type="text"
+                            name="210" value="14" maxlength="5" class="i_22"></p>
+                </div><br>
+                <div class="st1">CONNECTIVITY </div>
+                <div class="st2">
+                    <p>Status <input type="text" value="Connected                " class="i_44" disabled="disabled"></p>
+                    <p>DHCP <label class="i_44"><input type="checkbox" id="rb_dhcp" name="810" checked=""></label></p>
+                    <p>IP address <input type="text" id="i_dm3" name="215" value="3  " maxlength="3" class="i_11">
+                        <input type="text" id="i_dm4" name="214" value="2  " maxlength="3" class="i_11"> <input
+                            type="text" id="i_dm5" name="213" value="168" maxlength="3" class="i_11"> <input type="text"
+                            id="i_dm6" name="212" value="192" maxlength="3" class="i_11">
+                    </p>
+                    <p>Subnet mask <input type="text" id="i_dm7" name="219" value="0  " maxlength="3" class="i_11">
+                        <input type="text" id="i_dm8" name="218" value="255" maxlength="3" class="i_11"> <input
+                            type="text" id="i_dm9" name="217" value="255" maxlength="3" class="i_11"> <input type="text"
+                            id="i_dm10" name="216" value="255" maxlength="3" class="i_11">
+                    </p>
+                    <p>Gateway <input type="text" id="i_dm11" name="809" value="1  " maxlength="3" class="i_11"> <input
+                            type="text" id="i_dm12" name="808" value="2  " maxlength="3" class="i_11"> <input
+                            type="text" id="i_dm13" name="807" value="168" maxlength="3" class="i_11"> <input
+                            type="text" id="i_dm14" name="806" value="192" maxlength="3" class="i_11"></p>
+                    <p>BACnet ID <input type="text" name="293" value="60     " maxlength="7" class="i_44"></p>
+                    <p>BACnet Port <input type="text" class="i_44" name="828" value="47808" maxlength="5"></p>
+                    <p>Modbus RTU <select name="830" class="i_44">
+                            <option selected value="1">Panel</option>
+                            <option value="2">Fire dampers</option>
+                            <option value="3">Modbus</option>
+                        </select></p>
+                    <p class="rtu">Modbus ID <input type="text" name="220" value="254" maxlength="3" class="i_44"></p>
+                    <p class="rtu">RS-485 <select class="i_16" name="222">
+                            <option selected value="1">8E1</option>
+                            <option value="2">8N1</option>
+                            <option value="3">8E2</option>
+                            <option value="4">8N2</option>
+                        </select> <select class="i_32" name="221">
+                            <option value="1">9600 baud</option>
+                            <option selected value="2">19200 baud</option>
+                            <option value="3">38400 baud</option>
+                            <option value="4">57600 baud</option>
+                            <option value="5">115200 baud</option>
+                        </select></p>
+                </div><br>
+                <div class="st1">INFORMATION </div>
+                <div class="st2">
+                    <p class="hide_cfg">Configuration <input type="text" class="i_44"
+                            value="R-250-F_v2209                   " disabled="disabled"></p>
+                    <p>Main module firmware <input type="text" id="mmf1" value="C6 1.3.32.50      " class="i_44"
+                            disabled="disabled"></p>
+                    <p>Control panel firmware (1) <input type="text" id="t_pfw1" value="C6 1.2.3.33       " class="i_44"
+                            disabled="disabled"></p>
+                    <p>Control panel firmware (2) <input type="text" id="t_pfw2" value="*.*.*.*           " class="i_44"
+                            disabled="disabled"></p>
+                    <p class="fdh2">Fire dampers module firmware <input type="text" id="fdf" class="i_44"
+                            value="*.*                           " disabled="disabled"></p>
+                    <p class="hide_sn">S/N <input type="text" class="i_44" value="217400                          "
+                            disabled="disabled"></p>
+                    <p>C6 ID <input type="text" id="c6sn" value="AqQAA-NBaXIl-QOjP2H-HIAD1 " class="i_44"
+                            disabled="disabled"></p>
+                    <p>C6 QR <input type="button" id="b_c6qr" class="i_44" value="Generate    "></p>
+                    <p>Log <input type="button" id="b_fdown" class="i_44" value="Download     "
+                            title="2023-06-05 13:33:46 - 2023-07-02 14:58:59 "></p>
+                    <p>Settings file <input type="button" id="b_loadconfig" class="i_22" value="Load        "> <input
+                            type="button" id="b_saveconfig" class="i_22" value="Save       "></p>
+                </div>
+                <div class="d_but"><input type="button" id="b_save" class="st_b_save"
+                        value="SAVE CHANGES                 "> <input type="button" id="b_restore" class="st_b_restore"
+                        value="RESTORE TO DEFAULT            "> <input type="file" id="f_config"
+                        style="visibility:hidden" accept=".set"></div>
+            </div>
+            <div>
+                <div class="st1">LOGIN PASSWORD </div>
+                <div class="st2">
+                    <p>Enter new password <input type="password" id="i_dm1" name="205" pattern="[a-zA-Z0-9]+" value=""
+                            maxlength="10" class="i_44"></p>
+                    <p>Confirm new password <input type="password" id="i_dm2" name="206" pattern="[a-zA-Z0-9]+" value=""
+                            maxlength="10" class="i_44"></p>
+                </div><br>
+                <div class="st1">CONTROL MODE </div>
+                <div class="st2">
+                    <p>Flow control mode <select id="select_fm" class="i_44" name="223">
+                            <option value="1">CAV</option>
+                            <option value="2">VAV</option>
+                            <option value="3">DCV</option>
+                            <option selected value="4">OFF</option>
+                        </select></p>
+                    <p id="p_vav1" class="hideshow" data-shown style="display:none">Max. supply pressure <input
+                            type="text" class="i_44" name="225" value="300 Pa " maxlength="7"></p>
+                    <p id="p_vav2" class="hideshow" data-shown style="display:none">Max. extract pressure <input
+                            type="text" class="i_44" name="226" value="300 Pa " maxlength="7"></p>
+                    <p id="p_cav1" class="hideshow" data-shown style="display:none">Supply flow correction <span
+                            id="t_cav1"></span> <input type="range" id="r_cav1" name="800" step="1"></p>
+                    <p id="p_cav2" class="hideshow" data-shown style="display:none">Extract flow correction <span
+                            id="t_cav2"></span> <input type="range" id="r_cav2" name="801" step="1"></p>
+                    <p>Temperature control mode <select id="sel_tcm" class="i_44" name="224">
+                            <option selected value="1">Supply</option>
+                            <option value="2">Extract</option>
+                            <option value="3">Room</option>
+                            <option value="4">Balance</option>
+                        </select></p>
+                    <p id="p_room" class="hideshow" data-shown style="display:none"><label class="i_44"><input
+                                type="radio" id="r_pan1" name="294" value="0"> Panel 1</label> <label
+                            class="i_44"><input type="radio" id="r_pan2" name="294" value="1"> Panel 2</label></p>
+                </div><br>
+                <div class="st1">CONTROL SEQUENCE </div>
+                <div class="st2">
+                    <p style="display:none  ">Icing protection <select id="sel_preh" class="i_44" name="295">
+                            <option value="1">Off</option>
+                            <option selected value="2">On</option>
+                            <option value="3">External coil</option>
+                        </select></p>
+                    <p id="p_prehon" class="hideshow" data-shown style="display:none">Indoor humidity <label
+                            class="i_22">Auto <input type="checkbox" id="cb_auto" name="297" checked=""></label> <input
+                            type="text" id="t_humid" class="i_22" name="296" value="50 %  "></p>
+                    <p style="display:      ">Icing protection <select id="sel_def" class="i_44" name="837">
+                            <option value="1">Off</option>
+                            <option selected value="2">On</option>
+                        </select></p>
+                    <p id="p_defon" class="hideshow" data-shown style="display:none">Indoor humidity <label
+                            class="i_22">Auto <input type="checkbox" id="cb_auto2" name="846" checked=""></label> <input
+                            type="text" id="t_humid2" class="i_22" name="844" value="50 %  "></p>
+                    <p>Stage 1 <select id="select_st1" class="i_44" name="227">
+                            <option value="1">None</option>
+                            <option value="2">External coil</option>
+                            <option selected value="3">Electric heater</option>
+                            <option value="4">External DX unit</option>
+                        </select></p>
+                    <p>Stage 2 <select id="select_st2" class="i_44" name="228">
+                            <option selected value="1">None</option>
+                            <option value="2">External coil</option>
+                            <option value="3">Electric heater</option>
+                            <option value="4">External DX unit</option>
+                        </select></p>
+                    <p>Stage 3 <select id="select_st3" class="i_44" name="229">
+                            <option selected value="1">None</option>
+                            <option value="2">External coil</option>
+                            <option value="3">Electric heater</option>
+                            <option value="4">External DX unit</option>
+                        </select></p>
+                    <p id="p_coil" class="hideshow" data-shown style="display:none">External coil type <select
+                            id="e_coil_type" class="i_44" name="230">
+                            <option selected value="1">Hot water</option>
+                            <option value="2">Cold water</option>
+                            <option value="3">Auto</option>
+                        </select></p>
+                    <p id="a_dehum" class="hideshow" data-shown style="display:none">Allow dehumidifying with cooling
+                        <label class="i_44"><input type="checkbox" name="814"></label>
+                    </p>
+                </div><br>
+                <div class="st1">AIR QUALITY </div>
+                <div class="st2">
+                    <p>Impurity control <label class="i_44"><input type="checkbox" id="imp_c" name="231"></label></p>
+                    <p>Humidity control <label class="i_44"><input type="checkbox" id="hum_c" name="813"></label></p>
+                    <p>Sensor 1 <select id="select_b8" class="i_44" name="238">
+                            <option selected value="1">None</option>
+                            <option value="2">CO2</option>
+                            <option value="3">VOC</option>
+                            <option value="4">RH</option>
+                        </select></p>
+                    <p>Sensor 2 <select id="select_b9" class="i_44" name="239">
+                            <option selected value="1">None</option>
+                            <option value="2">CO2</option>
+                            <option value="3">VOC</option>
+                            <option value="4">RH</option>
+                        </select></p>
+                    <p id="o_sensor" class="hideshow" data-shown style="display:none">Outdoor humidity <select
+                            id="select_b10" class="i_44" name="815">
+                            <option selected value="1">None</option>
+                            <option value="2">Sensor 1</option>
+                            <option value="3">Sensor 2</option>
+                        </select></p>
+                    <p>Minimum intensivity <input type="text" class="i_44" name="235" value="0 %   "></p>
+                    <p>Maximum intensivity <input type="text" class="i_44" name="236" value="70 %  "></p>
+                    <p>Check period <input type="text" class="i_44" name="237" value="2 h "></p>
+                </div><br>
+                <div class="st1 fdh2">FIRE DAMPERS </div>
+                <div class="st2 fdh2">
+                    <p>Automatic test <label class="i_44"><input type="checkbox" name="835" checked=""></label></p>
+                    <p class="fdh">Test period, d. <input type="text" name="831" value="7  " maxlength="2" class="i_44">
+                    </p>
+                    <p class="fdh">Test time <input type="text" name="833" value="00 " maxlength="2" class="i_22">
+                        <input type="text" name="832" value="12 " maxlength="2" class="i_22">
+                    </p>
+                    <p>Manual test <input type="button" id="b_starttest" class="i_44" value="Start     "></p>
+                    <p>Last test <input type="text" value="-                 " maxlength="18" class="i_44"
+                            disabled="disabled"></p>
+                    <p class="fdh">Next test <input type="text" value="-                 " maxlength="18" class="i_44"
+                            disabled="disabled"></p>
+                </div><br class="fdh2">
+                <div class="st1">FILTERS </div>
+                <div class="st2">
+                    <p>Clean filters calibration <input type="button" id="b_filters" class="i_44" value="Confirm    ">
+                    </p>
+                </div><br>
+                <div class="st1 cloud_password">CLOUD</div>
+                <div class="st2 cloud_password">
+                    <p>"Komfovent Control" password <input type="button" id="res1" class="i_44" value="Reset        ">
+                    </p>
+                </div><br>
+            </div>
+        </div>
+    </form>
+</body>
+
+</html>

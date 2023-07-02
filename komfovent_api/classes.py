@@ -1,4 +1,5 @@
 from enum import Enum
+from dataclasses import dataclass
 from urllib.parse import urlparse, ParseResult
 
 
@@ -7,6 +8,14 @@ class KomfoventConnectionResult(Enum):
     NOT_FOUND = 2
     UNAUTHORISED = 3
     INVALID_INPUT = 4
+
+
+@dataclass
+class KomfoventSettinsResponse():
+    name: str
+    model: str
+    version: str
+    serial_number: str
 
 class KomfoventCredentials():
   
@@ -24,3 +33,10 @@ class KomfoventCredentials():
 
     def host(self) -> str:
         return "http://" + self.__host.netloc
+
+
+class KomfoventOperatingModes(Enum):
+    AWAY = 1
+    NORMAL = 2
+    INTENSIVE = 3
+    BOOST = 4
