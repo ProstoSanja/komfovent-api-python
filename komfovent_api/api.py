@@ -1,7 +1,6 @@
 from .classes import *
-from .networking import request
+from .networking import request, update
 
-import aiohttp
 import lxml.html as LX
 
 # helpers
@@ -49,3 +48,10 @@ def __parse_unit_status(data: str) -> KomfoventUnit:
         temp_extract = __string_to_float(root.xpath("ai1")[0].text),
         temp_outside = __string_to_float(root.xpath("ai2")[0].text),
     )
+
+async def set_operating_mode(creds: KomfoventCredentials, mode: KomfoventOperatingModes) -> KomfoventConnectionResult:
+    auth_status, _ = await get_settings(creds)
+    if (auth_status != KomfoventConnectionResult.SUCCESS):
+        return auth_status
+    await update(creds, KomfoventCommand.SET_MODE, mode.value)
+    return KomfoventConnectionResult.SUCCESS

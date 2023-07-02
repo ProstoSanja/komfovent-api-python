@@ -19,3 +19,11 @@ async def validate_komfovent_response(resp: aiohttp.ClientResponse,) -> tuple[Ko
     if "value=\"login\"" in text.replace(" ", "").lower():
         return (KomfoventConnectionResult.UNAUTHORISED, None)
     return (KomfoventConnectionResult.SUCCESS, text)
+
+async def update(creds: KomfoventCredentials, command: KomfoventCommand, value) -> None:
+    try:
+        async with aiohttp.ClientSession(timeout=aiohttp.ClientTimeout(5.0)) as session:
+            async with session.post(creds.host() + "/ajax.xml", data=f"{command.value}={value}"):
+                return
+    except:
+        return

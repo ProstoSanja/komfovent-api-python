@@ -26,6 +26,9 @@ class KomfoventCredentials():
     def host(self) -> str:
         return "http://" + self.__host.netloc
 
+class KomfoventCommand(Enum):
+    SET_MODE = 3
+
 class KomfoventOperatingModes(Enum):
     AWAY = 1
     NORMAL = 2
