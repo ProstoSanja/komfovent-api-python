@@ -16,19 +16,19 @@ def __string_to_float(input: str) -> float:
 
 # check_settings
 
-async def get_settings(creds: KomfoventCredentials) -> tuple[KomfoventConnectionResult, KomfoventSettins]:
+async def get_settings(creds: KomfoventCredentials) -> tuple[KomfoventConnectionResult, KomfoventSettings]:
     status, response = await request("/st.html", creds)
     if (status != KomfoventConnectionResult.SUCCESS):
         return (status, None)
     return (status, __parse_settings(response))
 
-def __parse_settings(data: str) -> KomfoventSettins:
+def __parse_settings(data: str) -> KomfoventSettings:
     root = LX.fromstring(data)
     name = root.xpath("//input[@name='204']")[0].value.strip()
     model = root.find_class("hide_cfg")[0].xpath("input")[0].value.strip()
     version = root.get_element_by_id("mmf1").value.strip()
     serial_number = root.get_element_by_id("c6sn").value.strip()
-    return KomfoventSettins(name, model, version, serial_number)
+    return KomfoventSettings(name, model, version, serial_number)
 
 # get_unit_status
 

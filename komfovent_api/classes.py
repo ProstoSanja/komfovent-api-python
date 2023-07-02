@@ -37,7 +37,7 @@ class KomfoventOperatingModes(Enum):
 
 
 @dataclass
-class KomfoventSettins():
+class KomfoventSettings():
     name: str
     model: str
     version: str
