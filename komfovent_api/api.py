@@ -49,9 +49,9 @@ def __parse_unit_status(data: str) -> KomfoventUnit:
         temp_outside = __string_to_float(root.xpath("ai2")[0].text),
     )
 
-async def set_operating_mode(creds: KomfoventCredentials, mode: KomfoventOperatingModes) -> KomfoventConnectionResult:
+async def set_preset(creds: KomfoventCredentials, preset: KomfoventPresets) -> KomfoventConnectionResult:
     auth_status, _ = await get_settings(creds)
     if (auth_status != KomfoventConnectionResult.SUCCESS):
         return auth_status
-    await update(creds, KomfoventCommand.SET_MODE, mode.value)
+    await update(creds, KomfoventCommand.SET_MODE, preset.value)
     return KomfoventConnectionResult.SUCCESS

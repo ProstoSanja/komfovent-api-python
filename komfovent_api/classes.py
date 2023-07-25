@@ -29,11 +29,16 @@ class KomfoventCredentials():
 class KomfoventCommand(Enum):
     SET_MODE = 3
 
-class KomfoventOperatingModes(Enum):
+class KomfoventPresets(Enum):
     AWAY = 1
     NORMAL = 2
     INTENSIVE = 3
     BOOST = 4
+
+class KomfoventModes(Enum):
+    OFF = 1
+    NORMAL = 2
+    ECO = 3
 
 
 @dataclass
