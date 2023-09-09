@@ -12,7 +12,12 @@ def get_credentials(host: str, username: str, password: str) -> tuple[KomfoventC
         return (KomfoventConnectionResult.INVALID_INPUT, None)
 
 def __string_to_float(input: str) -> float:
-    return float(''.join(c for c in input if c.isdigit() or c == '.'))
+    formatted = ''.join(c for c in input if c.isdigit() or c == '.')
+    if (len(formatted) > formatted.count('.')):
+        return float(formatted)
+    return 0.0
+def __string_to_int(input: str) -> float:
+    return int(''.join(c for c in input if c.isdigit()))
 
 # check_settings
 
@@ -38,10 +43,19 @@ async def get_unit_status(creds: KomfoventCredentials) -> tuple[KomfoventConnect
         return (status, None)
     return (status, __parse_unit_status(response))
 
+def __parse_unit_mode(root: any) -> KomfoventModes:
+    if (root.xpath("omo")[0].text.strip().upper() == "OFF"):
+        return KomfoventModes.OFF
+    if (__string_to_int(root.xpath("vf")[0].text) >> 23 & 1):
+        return KomfoventModes.AUTO
+    # TODO: detect if heating is enabled in mode settings
+    return KomfoventModes.COOL
+
 def __parse_unit_status(data: str) -> KomfoventUnit:
     root = LX.fromstring(data.encode())
     return KomfoventUnit(
-        mode = root.xpath("omo")[0].text.strip().upper(),
+        preset = root.xpath("omo")[0].text.strip().upper(),
+        mode = __parse_unit_mode(root),
         fan_speed = int(root.xpath("sp")[0].text.strip()),
         temp_target = __string_to_float(root.xpath("st")[0].text),
         temp_supply = __string_to_float(root.xpath("ai0")[0].text),
@@ -53,5 +67,23 @@ async def set_preset(creds: KomfoventCredentials, preset: KomfoventPresets) -> K
     auth_status, _ = await get_settings(creds)
     if (auth_status != KomfoventConnectionResult.SUCCESS):
         return auth_status
-    await update(creds, KomfoventCommand.SET_MODE, preset.value)
+    await update(creds, KomfoventCommand.SET_PRESET, preset.value)
     return KomfoventConnectionResult.SUCCESS
+
+async def set_mode(creds: KomfoventCredentials, mode: KomfoventModes) -> KomfoventConnectionResult:
+    status, state = await get_unit_status(creds)
+    if (status != KomfoventConnectionResult.SUCCESS):
+        return status
+    if (state.mode == mode):
+        return KomfoventConnectionResult.SUCCESS
+    if (mode == KomfoventModes.OFF):
+        await update(creds, KomfoventCommand.ON_OFF, 0)
+    elif (mode == KomfoventModes.AUTO):
+        await update(creds, KomfoventCommand.SET_AUTO, 2)
+    else:
+        # disable all special modes
+        if (state.mode == KomfoventModes.OFF):
+            await update(creds, KomfoventCommand.ON_OFF, 0)
+        elif (state.mode == KomfoventModes.AUTO):
+            await update(creds, KomfoventCommand.SET_AUTO, 2)
+    return await set_mode(creds, mode)

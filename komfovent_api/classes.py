@@ -27,7 +27,9 @@ class KomfoventCredentials():
         return "http://" + self.__host.netloc
 
 class KomfoventCommand(Enum):
-    SET_MODE = 3
+    ON_OFF = 5
+    SET_PRESET = 3
+    SET_AUTO = 285
 
 class KomfoventPresets(Enum):
     AWAY = 1
@@ -37,9 +39,9 @@ class KomfoventPresets(Enum):
 
 class KomfoventModes(Enum):
     OFF = 1
-    NORMAL = 2
-    ECO = 3
-
+    COOL = 2
+    HEAT_COOL = 3
+    AUTO = 4
 
 @dataclass
 class KomfoventSettings():
@@ -51,7 +53,8 @@ class KomfoventSettings():
 
 @dataclass
 class KomfoventUnit():
-    mode: str
+    preset: str
+    mode: KomfoventModes
     fan_speed: int
     temp_target: float
     temp_supply: float
