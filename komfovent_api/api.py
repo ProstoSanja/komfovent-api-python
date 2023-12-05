@@ -24,7 +24,7 @@ def __string_to_int(input: str) -> float:
 async def get_settings(creds: KomfoventCredentials) -> tuple[KomfoventConnectionResult, KomfoventSettings]:
     status, response = await request("/st.html", creds)
     if (status != KomfoventConnectionResult.SUCCESS):
-        return (status, None)
+        return (status, response)
     return (status, __parse_settings(response))
 
 def __parse_settings(data: str) -> KomfoventSettings:
@@ -40,7 +40,7 @@ def __parse_settings(data: str) -> KomfoventSettings:
 async def get_unit_status(creds: KomfoventCredentials) -> tuple[KomfoventConnectionResult, KomfoventUnit]:
     status, response = await request("/i.asp", creds)
     if (status != KomfoventConnectionResult.SUCCESS):
-        return (status, None)
+        return (status, response)
     return (status, __parse_unit_status(response))
 
 def __parse_unit_mode(root: any) -> KomfoventModes:

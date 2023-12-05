@@ -21,7 +21,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     _, credentials = komfovent_api.get_credentials(host, username, password)
     result, settings = await komfovent_api.get_settings(credentials)
     if result != komfovent_api.KomfoventConnectionResult.SUCCESS:
-        raise ConfigEntryNotReady(f"Unable to connect to {host}: {result}")
+        raise ConfigEntryNotReady(f"Unable to connect to {host}: {result} {settings}")
 
     hass.data.setdefault(DOMAIN, {})[entry.entry_id] = (credentials, settings)
 

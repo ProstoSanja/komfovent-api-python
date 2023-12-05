@@ -2,7 +2,6 @@ from .classes import *
 
 import aiohttp
 import logging
-_LOGGER = logging.getLogger(__name__)
 
 async def request(filename: str, creds: KomfoventCredentials) -> tuple[KomfoventConnectionResult, str]:
     try:
@@ -15,11 +14,9 @@ async def request(filename: str, creds: KomfoventCredentials) -> tuple[Komfovent
 async def validate_komfovent_response(resp: aiohttp.ClientResponse,) -> tuple[KomfoventConnectionResult, str]:
     text = await resp.text()
     if resp.status != 200:
-        _LOGGER.debug(f"Response status code: {resp.status}")
-        return (KomfoventConnectionResult.NOT_FOUND, None)
+        return (KomfoventConnectionResult.NOT_FOUND, f"Response status code: {resp.status}")
     if resp.headers.get('Server') != 'C6':
-        _LOGGER.debug(f"Headers: {resp.headers}")
-        return (KomfoventConnectionResult.NOT_FOUND, None)
+        return (KomfoventConnectionResult.NOT_FOUND, f"Headers: {resp.headers}")
     if "value=\"login\"" in text.replace(" ", "").lower():
         return (KomfoventConnectionResult.UNAUTHORISED, None)
     return (KomfoventConnectionResult.SUCCESS, text)
