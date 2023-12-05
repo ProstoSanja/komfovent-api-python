@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "komfovent-api"
-version = "0.0.5"
+version = "0.0.6"
 license = {text = "Apache-2.0"}
 description = "Implementing Komfovent C6 API in python"
 readme = {file = "README.md", content-type = "text/markdown" }

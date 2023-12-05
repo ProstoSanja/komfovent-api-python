@@ -8,8 +8,8 @@ async def request(filename: str, creds: KomfoventCredentials) -> tuple[Komfovent
         async with aiohttp.ClientSession(timeout=aiohttp.ClientTimeout(5.0)) as session:
             async with session.post(creds.host() + filename, data= {'1': creds.username, '2': creds.password}) as resp:
                 return await validate_komfovent_response(resp)
-    except:
-        return (KomfoventConnectionResult.NOT_FOUND, None)
+    except Exception as error:
+        return (KomfoventConnectionResult.NOT_FOUND, error)
 
 async def validate_komfovent_response(resp: aiohttp.ClientResponse,) -> tuple[KomfoventConnectionResult, str]:
     text = await resp.text()
