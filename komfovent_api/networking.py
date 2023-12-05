@@ -12,7 +12,7 @@ async def request(filename: str, creds: KomfoventCredentials) -> tuple[Komfovent
         return (KomfoventConnectionResult.NOT_FOUND, error)
 
 async def validate_komfovent_response(resp: aiohttp.ClientResponse,) -> tuple[KomfoventConnectionResult, str]:
-    text = await resp.text()
+    text = await resp.text(encoding="Windows-1252")
     if resp.status != 200:
         return (KomfoventConnectionResult.NOT_FOUND, f"Response status code: {resp.status}")
     if resp.headers.get('Server') != 'C6':
